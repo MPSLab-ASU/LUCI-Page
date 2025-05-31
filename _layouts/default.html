@@ -42,7 +42,7 @@
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     <script>
     function sendHeight() {
-      const height =  
+      const height = document.body.scrollHeight;
       parent.postMessage({ type: 'setHeight', height }, '*');
       console.log('Height sent:', height);
     }
