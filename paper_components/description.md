@@ -1,48 +1,18 @@
+In today's connected technology landscape, embedded systems play a critical role. Most Internet of Things(IoT) devices are powered by increasingly capable embedded systems. The prevalence of these smaller embedded devices, such as smartwatches and the newly burgeoning field of "smart glasses", requires a rethinking of what human-computer interaction looks like and what next-generation operating systems for embedded systems may look like. A key challenge here is the ability to efficiently bridge the gap between interfaces designed for larger devices that utilize touch or keyboard/mouse input and the smaller devices that rely on voice or minimal gesture and button inputs.
 
-## Math Demo
-$$ \alpha = \beta $$
+Natural Language Processing (NLP) has been a key building block in these voice-first user interfaces, such as those found in smart speakers and smart watches, with digital assistants such as Google Assistant, Siri, and Alexa serving as the first interfaces for user interaction on voice-only devices. The advent of large language models (LLMs) has ushered a new era of voice command-focused devices, such as the Rabbit R1. We define `*voice command-focused devices*' as devices whose interface primarily relies on parsing and acting on voice commands from a user along with any additional context information such as images. However, while these devices have proved extremely powerful in their limited scope, they lack the ability to truly interact with the Web and serve as a true replacement for pure touch and keyboard/mouse interfaces.
 
-## Normal Code
-This is an academic paper project page template.
+A key challenge in this domain is the ability of an LLM to convert user prompts into actions. Most tools and websites have been designed for humans and create challenges for LLMs to navigate. The first approaches attempted to extend the coding capabilities of LLMs to work with APIs to perform tasks. They adopted a Planner, Actor and Reporter structure to provide the necessary context to the LLMs, i.e., grounding, allowing them to interact with the environment (computer systems). However, API-based methods required the creation of natural language instructions for the API of each application, which limited their generalization across multiple applications. *In-Context Learning*(ICL) was used to remedy this by providing the necessary context on relevant prompts rather than pre-training. However, this was limited by the context length of the LLMs.
 
+Simultaneously, another avenue of research was LLM frameworks to manipulate the graphic user interface (GUI). These focused on teaching LLMs to interact with the GUI front-end of applications, forgoing the need for specific APIs and leading to better generalization. Early Reinforcement Learning (RL) on Hypertext Markup Language(HTML) struggled with the selection of relevant UI elements that required supervised training. In this work, our aim is to remedy these challenges and create a lightweight LLM GUI control framework.
 
-Example project pages built using this template are:
-- https://www.vision.huji.ac.il/deepsim/
-- https://www.vision.huji.ac.il/3d_ads/
-- https://www.vision.huji.ac.il/ssrl_ad/
-- https://www.vision.huji.ac.il/conffusion/
+In order to remedy challenges with identifying UI elements from HTML, a multi-modal model was introduced that operated on both text and image inputs such as GPT 4V. These models were able to achieve state-of-the-art performance on the Mind2Web benchmark. However, these models were limited by their large size and the need for fine-tuning on a large multimodal dataset. This large size makes it impossible to run these models locally on current and near-term embedded systems, leading to internet dependency. A direct consequence of this dependency are continuous server costs and latency issues.
 
+We introduce a novel framework - Lightweight UI Command Interface (LUCI), that enables multi-application GUI-based orchestration via an ensemble of lightweight LLMs. The LUCI framework is designed to be modular, hierarchical, and OS-agnostic, enabling it to work seamlessly across both native and web interfaces. This is achieved by using a separation of responsibilities model to decompose tasks into sub-tasks and recursively solve them with a variety of LLM and rule-based components. Our approach is based on the insights of multi-agent based LLM pipelines and the Mixture of Experts models. LUCI uses a set of fine-tuned models with specialized prompts to handle different aspects of the system such as high-level planning, tool selection and action selection. The information flow between these models is shown in the architecture figure above. LUCI adopts an application centric approach to planning, where the system first identifies the most relevant application that will be needed to address the given task prompt. This both greatly simplifies the planning as well as serves as effective grounding for downstream tasks. A '*conversational model*' then generates sub-tasks for the prompt based on the selected applications. These subtasks are processed iteratively. Additionally, in order to efficiently parse the front-end code from applications, we developed a rule-based semantic parser which we refer to as `*UI Extractor*'. This parser compresses the code into an intermediate representation known as Information-Action-Field (IAF) format. This allows LUCI to greatly increase the effective attention window of the lightweight LLMs. Overall, the key contributions of LUCI can be summarized as:
 
-## Start using the template
-To start using the template click on `Use this Template`.
-
-The template uses html for controlling the content and css for controlling the style. 
-To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
-
-**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
-
-## Components
-- Teaser video
-- Images Carousel
-- Youtube embedding
-- Video Carousel
-- PDF Poster
-- Bibtex citation
-
-## Tips:
-- The `index.html` file contains comments instructing you what to replace, you should follow these comments.
-- The `meta` tags in the `index.html` file are used to provide metadata about your paper 
-(e.g. helping search engine index the website, showing a preview image when sharing the website, etc.)
-- The resolution of images and videos can usually be around 1920-2048, there rarely a need for better resolution that take longer to load. 
-- All the images and videos you use should be compressed to allow for fast loading of the website (and thus better indexing by search engines). For images, you can use [TinyPNG](https://tinypng.com), for videos you can need to find the tradeoff between size and quality.
-- When using large video files (larger than 10MB), it's better to use youtube for hosting the video as serving the video from the website can take time.
-- Using a tracker can help you analyze the traffic and see where users came from. [statcounter](https://statcounter.com) is a free, easy to use tracker that takes under 5 minutes to set up. 
-- This project page can also be made into a github pages website.
-- Replace the favicon to one of your choosing (the default one is of the Hebrew University). 
-- Suggestions, improvements and comments are welcome, simply open an issue or contact me. You can find my contact information at [https://pages.cs.huji.ac.il/eliahu-horwitz/](https://pages.cs.huji.ac.il/eliahu-horwitz/)
-
-## Acknowledgments
-Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
-
-## Website License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+1. An application-centric planning framework for fast and efficient model grounding for adaptable multi-application task planning.
+2. A modular OS-agnostic framework capable of scaling across native and web interfaces.
+3. A rule-based semantic parser for efficient compression of front-end code into structured IAF representations, allowing for larger effective attention windows and better task grounding.
+4. A multi-agent framework for task orchestration, enabling LUCI to achieve state-of-the-art performance on the Mind2Web benchmark while using lightweight LLMs.
+   
+Our experiments show that LUCI achieves a $$99+\%$$ success rate on the MiniWoB++ benchmark. Additionally, LUCI achieves an upto $$31\%$$ improvement in Step SR and $$24\%$$ improvement in OP F1 Score over GPT-4V on the Mind2Web benchmark while using GPT 3.5. When using the $$2.7B$$ parameter PHI-2 model, LUCI demonstrates $$10\%$$ increase in step SR and $$$$7.9\%$$$$ increase in OP F1 score over GPT 4V while $$10^3$$ times fewer parameters $$1.8$$- Trillion (GPT 4V) vs $$3$$-Billion parameters (PHI-2).

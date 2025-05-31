@@ -1,5 +1,14 @@
-- filename: stock1.JPG
-  caption: Random Caption 1 
+- filename: use-case.png
+  caption: LUCI use-case diagram. LUCI would enable embedded devices to interact with a variety of applications and websites while migitating the limitations of their input mechanisms.
 
-- filename: stock2.JPG
-  caption: Random Caption 2 with **bold** text 
+- filename: 1.png
+  caption: Example toolset selector prompt.
+
+- filename: 2.png
+  caption: Example conversation model prompt.
+
+- filename: 3.png
+  caption: Example task verifier prompt.
+
+- filename: 4.png
+  caption: Example UI selector prompt.
