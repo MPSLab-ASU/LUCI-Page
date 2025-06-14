@@ -29,6 +29,26 @@ title: Home
         </ul>   
         
         <ul class="resource-list list-inline">
+            {%- if site.IEEE -%}
+                <li><a role="button" href="{{site.IEEE}}" class="btn btn-primary rounded-pill" style="border-color: #17445A;background-color: #17445A">
+                    <i class="ai ai-ieee-square"></i> <b> IEEE </b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
+            {%- if site.ACM -%}
+                <li><a role="button" href="{{site.ACM}}" class="btn btn-primary rounded-pill" style="border-color: #3E80A9;background-color: #3E80A9">
+                    <i class="ai ai-ACM-square"></i> <b> ACM </b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
+            {%- if site.arXiv -%}
+                <li><a role="button" href="{{site.arXiv}}" class="btn btn-danger rounded-pill" style="background-color: #B31B1B">
+                    <i class="ai ai-arxiv-square"></i> <b> ArXiv</b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
+            {%- if site.code -%}
+                <li><a role="button" href="{{site.code}}" class="btn btn-secondary rounded-pill" style="background-color: #242424;">
+                    <i class="devicon-github-original"></i><b> Code</b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
             {%- if site.paper_pdf -%}
                 <li><a role="button" href="{{site.paper_pdf}}" class="btn btn-primary rounded-pill">
                     <i class="fa fa-file-pdf-o"></i><b> Paper</b> 
@@ -37,21 +57,6 @@ title: Home
             {%- if site.supplementary_pdf -%}
                 <li><a role="button" href="{{site.supplementary_pdf}}" class="btn btn-primary rounded-pill">
                     <i class="far fa-file-pdf"></i><b> Paper</b> 
-                </a> &nbsp; &nbsp; </li> 
-            {%- endif -%}
-            {%- if site.code -%}
-                <li><a role="button" href="{{site.code}}" class="btn btn-secondary rounded-pill" style="background-color: #242424;">
-                    <i class="devicon-github-original"></i><b> Code</b> 
-                </a> &nbsp; &nbsp; </li> 
-            {%- endif -%}
-            {%- if site.arXiv -%}
-                <li><a role="button" href="{{site.arXiv}}" class="btn btn-danger rounded-pill" style="background-color: #B31B1B">
-                    <i class="ai ai-arxiv-square"></i> <b> ArXiv</b> 
-                </a> &nbsp; &nbsp; </li> 
-            {%- endif -%}
-            {%- if site.IEEE -%}
-                <li><a role="button" href="{{site.IEEE}}" class="btn btn-primary rounded-pill" style="border-color: #17445A;background-color: #17445A">
-                    <i class="ai ai-ieee-square"></i> <b> IEEE </b> 
                 </a> &nbsp; &nbsp; </li> 
             {%- endif -%}
         </ul>

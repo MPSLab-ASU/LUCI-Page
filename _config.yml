@@ -8,11 +8,12 @@ preprint : False
 
 ######################## Paper Resources ########################################
 
-# paper_pdf: https://dl.acm.org/doi/pdf/10.1145/3358198
+paper_pdf: https://dl.acm.org/doi/pdf/10.1145/3735452.3735536
 # supplementary_pdf: Supplementary PDF here
-# code: https://github.com/MPSLab-ASU/Project_Page_Template
-# arXiv : https://arxiv.org/abs/1512.01274
-# IEEE: https://ieeexplore.ieee.org/document/9187262
+# code: GitHub link here
+# arXiv : ArXiV link here
+# IEEE: IEEE Publication Link Here
+ACM: https://dl.acm.org/doi/10.1145/3735452.3735536
 # Additional icon links
 
 favicon: assets/images/MPS_Lab.ico
